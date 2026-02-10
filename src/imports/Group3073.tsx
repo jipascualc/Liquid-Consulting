@@ -1,6 +1,6 @@
 import svgPaths from "./svg-i8devqv4ve";
-import imgImageLinkedIn from "../../assets/d28eb6f86c94a90ca460280a0a6c487c7998f48d.png";
-import imgImage from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.png";
+import imgImageLinkedIn from "../../assets/d28eb6f86c94a90ca460280a0a6c487c7998f48d.webp";
+import imgImage from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.webp";
 
 function Group() {
   return <div className="absolute left-[-343.6px] size-0 top-[-662.01px]" data-name="Group" />;

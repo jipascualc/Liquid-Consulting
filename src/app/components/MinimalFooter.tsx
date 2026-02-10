@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import svgPaths from "../../imports/svg-i8devqv4ve";
-import imgLinkedinLogoPng from "../../assets/d28eb6f86c94a90ca460280a0a6c487c7998f48d.png";
-import imgImage from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.png";
+import imgLinkedinLogoPng from "../../assets/d28eb6f86c94a90ca460280a0a6c487c7998f48d.webp";
+import imgImage from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.webp";
 
 interface MinimalFooterProps {
   onServiceClick?: (serviceId: string) => void;

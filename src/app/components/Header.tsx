@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import svgPaths from "../../imports/svg-fvhqpjym4x";
-import imgRectangle1 from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.png";
+import imgRectangle1 from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.webp";
 import { imgRectangle } from "../../imports/svg-3m1pc";
 
 function MaskGroup() {

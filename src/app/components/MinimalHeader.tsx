@@ -1,7 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import svgPaths from "../../imports/svg-xzm3t70tl4";
-import imgImage from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.png";
+import imgImage from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.webp";
 import { RequestSupportModal } from "./RequestSupportModal";
 
 interface MinimalHeaderProps {

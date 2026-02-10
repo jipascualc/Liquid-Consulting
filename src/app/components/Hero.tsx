@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
-import imgLiquidHeroWebm from "../../assets/37924a4e8637f08e9ce2cf094e682ac9bf64f3d0.png";
+import imgLiquidHeroWebm from "../../assets/37924a4e8637f08e9ce2cf094e682ac9bf64f3d0.webp";
 
 export function Hero() {
   return (

@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
-import imgImage1Jpg from "../../assets/1c9ec8aeebb00a6059b4b11353db67f92bae7471.png";
+import imgImage1Jpg from "../../assets/1c9ec8aeebb00a6059b4b11353db67f92bae7471.webp";
 
 export function Experience() {
   const ref = useRef(null);

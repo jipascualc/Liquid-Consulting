@@ -1,11 +1,11 @@
 import svgPaths from "./svg-cgghg4k7oc";
-import imgClient1Jpg from "../../assets/29fe148fce8935431e062d6a7905a780364a21ec.png";
-import imgClient2Jpg from "../../assets/ecd85f3e366b711f135575fb5ab290c6928ad877.png";
-import imgClient3Jpg from "../../assets/de8db03f585829b36adf7a464c98b8f56b1199b5.png";
-import imgClient4Jpg from "../../assets/432a495d39838960af3082bfc68ef142a612cfb8.png";
-import imgClient5Jpg from "../../assets/627d7c5be7fc455a01371b26fa24d1119a8e8007.png";
-import imgClient6Jpg from "../../assets/78a4cd2745334d6c80666b74061c2c795ee67d54.png";
-import imgImage1Jpg from "../../assets/1c9ec8aeebb00a6059b4b11353db67f92bae7471.png";
+import imgClient1Jpg from "../../assets/29fe148fce8935431e062d6a7905a780364a21ec.webp";
+import imgClient2Jpg from "../../assets/ecd85f3e366b711f135575fb5ab290c6928ad877.webp";
+import imgClient3Jpg from "../../assets/de8db03f585829b36adf7a464c98b8f56b1199b5.webp";
+import imgClient4Jpg from "../../assets/432a495d39838960af3082bfc68ef142a612cfb8.webp";
+import imgClient5Jpg from "../../assets/627d7c5be7fc455a01371b26fa24d1119a8e8007.webp";
+import imgClient6Jpg from "../../assets/78a4cd2745334d6c80666b74061c2c795ee67d54.webp";
+import imgImage1Jpg from "../../assets/1c9ec8aeebb00a6059b4b11353db67f92bae7471.webp";
 
 function Paragraph() {
   return (

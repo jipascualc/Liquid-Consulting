@@ -220,7 +220,7 @@ export function RequestSupportModal({ isOpen, onClose }: RequestSupportModalProp
                     type="file"
                     onChange={handleFileChange}
                     className="hidden"
-                    accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
+                    accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.webp"
                   />
                   <span className="ml-3 text-gray-600">
                     {formData.attachment ? formData.attachment.name : "No file chosen"}

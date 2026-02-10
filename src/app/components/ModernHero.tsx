@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useRef } from "react";
-import imgLiquidHeroWebm from "../../assets/37924a4e8637f08e9ce2cf094e682ac9bf64f3d0.png";
+import imgLiquidHeroWebm from "../../assets/37924a4e8637f08e9ce2cf094e682ac9bf64f3d0.webp";
 
 export function ModernHero() {
   const ref = useRef(null);

@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import imgImage1Jpg from "../../assets/633907679ef9a4487c5f84e39dfd956e6956733b.png";
+import imgImage1Jpg from "../../assets/633907679ef9a4487c5f84e39dfd956e6956733b.webp";
 
 export function MinimalExperience() {
   const ref = useRef(null);

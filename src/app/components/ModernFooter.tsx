@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import svgPaths from "../../imports/svg-fvhqpjym4x";
-import imgRectangle1 from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.png";
+import imgRectangle1 from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.webp";
 import { imgRectangle } from "../../imports/svg-3m1pc";
-import imgLinkedinLogoPng from "../../assets/d28eb6f86c94a90ca460280a0a6c487c7998f48d.png";
+import imgLinkedinLogoPng from "../../assets/d28eb6f86c94a90ca460280a0a6c487c7998f48d.webp";
 import { ArrowUp } from "lucide-react";
 
 function MaskGroup() {

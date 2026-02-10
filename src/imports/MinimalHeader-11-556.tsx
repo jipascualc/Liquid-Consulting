@@ -1,5 +1,5 @@
 import svgPaths from "./svg-xzm3t70tl4";
-import imgImage from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.png";
+import imgImage from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.webp";
 
 function Group() {
   return <div className="absolute left-0 size-0 top-0" data-name="Group" />;

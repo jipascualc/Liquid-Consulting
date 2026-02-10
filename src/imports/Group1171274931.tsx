@@ -1,5 +1,5 @@
 import svgPaths from "./svg-k8552v1ra5";
-import imgRectangle1 from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.png";
+import imgRectangle1 from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.webp";
 import { imgRectangle } from "./svg-uhdqn";
 
 function MaskGroup() {
