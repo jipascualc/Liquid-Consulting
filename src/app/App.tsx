@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MinimalHeader } from "./components/MinimalHeader";
 import { MinimalFooter } from "./components/MinimalFooter";
 import { HomePage } from "./pages/HomePage";
@@ -9,17 +9,41 @@ import { ServiceDetailPage } from "./pages/ServiceDetailPage";
 
 type PageType = "home" | "about" | "join-us" | "services" | { type: "service"; id: string };
 
+function getPageFromHash(): PageType {
+  const hash = window.location.hash.replace("#", "");
+  if (hash === "about") return "about";
+  if (hash === "services") return "services";
+  if (hash === "join-us") return "join-us";
+  if (hash.startsWith("service/")) return { type: "service", id: hash.replace("service/", "") };
+  return "home";
+}
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>("home");
+  const [currentPage, setCurrentPage] = useState<PageType>(getPageFromHash);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentPage(getPageFromHash());
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  const navigate = (page: PageType) => {
+    if (typeof page === "string") {
+      window.location.hash = page === "home" ? "" : page;
+    } else {
+      window.location.hash = `service/${page.id}`;
+    }
+  };
 
   const handleServiceClick = (serviceId: string) => {
-    setCurrentPage({ type: "service", id: serviceId });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate({ type: "service", id: serviceId });
   };
 
   const handleBackToHome = () => {
-    setCurrentPage("home");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("home");
   };
 
   const getHeaderPage = (): "home" | "about" | "join-us" | "services" => {
@@ -53,12 +77,12 @@ export default function App() {
     <div className="min-h-screen bg-white relative">
       <MinimalHeader
         currentPage={getHeaderPage()}
-        onNavigate={(page) => setCurrentPage(page)}
+        onNavigate={(page) => navigate(page)}
       />
       <main className="relative z-10">{renderPage()}</main>
-      <MinimalFooter 
+      <MinimalFooter
         onServiceClick={handleServiceClick}
-        onNavigate={(page) => setCurrentPage(page)}
+        onNavigate={(page) => navigate(page)}
       />
     </div>
   );
