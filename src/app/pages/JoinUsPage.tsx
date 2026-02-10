@@ -63,8 +63,8 @@ export function JoinUsPage() {
       <section className="bg-gradient-to-br from-[#0d1c36] to-[#1a2f4d] text-white py-20">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl font-bold mb-6">Join Our Team</h1>
@@ -81,8 +81,8 @@ export function JoinUsPage() {
           <form onSubmit={handleSubmit} className="space-y-12">
             {/* Information About the Recruit */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">INFORMATION ABOUT THE RECRUIT</h2>
@@ -130,8 +130,8 @@ export function JoinUsPage() {
 
             {/* Areas & Questions */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">AREAS & QUESTIONS</h2>
@@ -181,8 +181,8 @@ export function JoinUsPage() {
 
             {/* Family Situation */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">FAMILY SITUATION</h2>
@@ -200,8 +200,8 @@ export function JoinUsPage() {
 
             {/* Personal Interests */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">PERSONAL INTERESTS</h2>
@@ -219,8 +219,8 @@ export function JoinUsPage() {
 
             {/* Education */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">EDUCATION</h2>
@@ -238,8 +238,8 @@ export function JoinUsPage() {
 
             {/* Previous Work */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">PREVIOUS WORK</h2>
@@ -269,8 +269,8 @@ export function JoinUsPage() {
 
             {/* Field Work Experience */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">FIELD WORK EXPERIENCE</h2>
@@ -301,8 +301,8 @@ export function JoinUsPage() {
 
             {/* Travel Experience */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">TRAVEL EXPERIENCE</h2>
@@ -320,8 +320,8 @@ export function JoinUsPage() {
 
             {/* Motivation */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.9 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">MOTIVATION</h2>
@@ -339,8 +339,8 @@ export function JoinUsPage() {
 
             {/* Drive */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.0 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">DRIVE</h2>
@@ -361,8 +361,8 @@ export function JoinUsPage() {
 
             {/* Discipline */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.1 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">DISCIPLINE</h2>
@@ -383,8 +383,8 @@ export function JoinUsPage() {
 
             {/* Flexibility */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.2 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">FLEXIBILITY</h2>
@@ -405,8 +405,8 @@ export function JoinUsPage() {
 
             {/* Teamwork */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.3 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">TEAMWORK</h2>
@@ -427,8 +427,8 @@ export function JoinUsPage() {
 
             {/* Professional Interest */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.4 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">PROFESSIONAL INTEREST</h2>
@@ -446,8 +446,8 @@ export function JoinUsPage() {
 
             {/* Future Ambition */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.5 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">FUTURE AMBITION</h2>
@@ -465,8 +465,8 @@ export function JoinUsPage() {
 
             {/* Travelling Arrangements */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.6 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">TRAVELLING ARRANGEMENTS</h2>
@@ -513,8 +513,8 @@ export function JoinUsPage() {
 
             {/* Anything Else */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.7 }}
             >
               <h2 className="text-2xl font-bold text-[#0d1c36] mb-6">ANYTHING ELSE YOU WOULD LIKE TO MENTION</h2>
@@ -599,8 +599,8 @@ export function JoinUsPage() {
 
             {/* Submit Button */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.8 }}
               className="flex justify-center pt-6"
             >

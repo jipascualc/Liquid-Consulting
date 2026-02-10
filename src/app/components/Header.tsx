@@ -70,7 +70,7 @@ export function Header() {
                 href={item.href}
                 className="text-white/90 hover:text-[#ff6c19] transition-colors duration-300"
                 initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 {item.name}
@@ -80,7 +80,7 @@ export function Header() {
               href="#contact"
               className="bg-[#ff6c19] hover:bg-[#ff8540] text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#ff6c19]/30"
               initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               Request Support

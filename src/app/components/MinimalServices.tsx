@@ -1,5 +1,28 @@
-import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, AlertCircle, Wrench, FileText, Shield, RefreshCw, Cpu, Settings, Package } from "lucide-react";
+
+function useFadeIn(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, visible };
+}
 
 interface MinimalServicesProps {
   onServiceClick: (serviceId: string) => void;
@@ -60,16 +83,30 @@ export function MinimalServices({ onServiceClick }: MinimalServicesProps) {
     }
   ];
 
+  const FadeInTitle = () => {
+    const { ref, visible } = useFadeIn(0.15);
+    return (
+      <div
+        ref={ref}
+        className={`text-center mb-16 transition-opacity duration-700 ease-out ${visible ? "opacity-100" : "opacity-0"}`}
+      >
+        <p className="text-[#ff6c19] text-sm uppercase tracking-wider mb-4">Our Services</p>
+        <h2 className="text-4xl md:text-5xl text-[#0d1c36] mb-4">
+          Comprehensive Solutions
+        </h2>
+      </div>
+    );
+  };
+
   const ServiceCard = ({ service, index }: { service: any; index: number }) => {
     const Icon = service.icon;
+    const { ref, visible } = useFadeIn(0.15);
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        viewport={{ once: true }}
+      <div
+        ref={ref}
         onClick={() => onServiceClick(service.id)}
-        className="group bg-white p-8 border border-gray-200 hover:border-[#ff6c19] transition-all duration-300 cursor-pointer relative"
+        style={{ transitionDelay: `${index * 100}ms` }}
+        className={`group bg-white p-8 border border-gray-200 hover:border-[#ff6c19] transition-all duration-700 ease-out cursor-pointer relative ${visible ? "opacity-100" : "opacity-0"}`}
       >
         {/* Icon */}
         <div className="w-12 h-12 bg-[#ff6c19]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#ff6c19] transition-colors duration-300">
@@ -84,25 +121,14 @@ export function MinimalServices({ onServiceClick }: MinimalServicesProps) {
         <div className="flex justify-end">
           <ArrowRight className="w-5 h-5 text-[#ff6c19] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
         </div>
-      </motion.div>
+      </div>
     );
   };
 
   return (
     <section id="services" className="relative bg-white py-24">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-[#ff6c19] text-sm uppercase tracking-wider mb-4">Our Services</p>
-          <h2 className="text-4xl md:text-5xl text-[#0d1c36] mb-4">
-            Comprehensive Solutions
-          </h2>
-        </motion.div>
+        <FadeInTitle />
 
         <div className="space-y-16 relative">
           {/* Field Service Section */}

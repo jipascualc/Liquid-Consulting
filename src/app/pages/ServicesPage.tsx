@@ -12,8 +12,8 @@ export function ServicesPage({ onServiceClick }: ServicesPageProps) {
       <section className="relative bg-gradient-to-b from-[#0d1c36] to-[#0d1c36]/95 pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >

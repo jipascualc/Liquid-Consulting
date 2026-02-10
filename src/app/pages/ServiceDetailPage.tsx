@@ -291,8 +291,8 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
@@ -340,8 +340,8 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
             {service.features.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"

@@ -75,8 +75,8 @@ export function ModernExperience() {
               {/* CTA */}
               <motion.a
                 href="#contact"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
                 className="group inline-flex items-center space-x-3 px-10 py-5 bg-gradient-to-r from-[#ff6c19] to-[#ff8540] text-white rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#ff6c19]/50 hover:scale-105"

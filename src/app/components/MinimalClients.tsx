@@ -30,8 +30,8 @@ export function MinimalClients() {
           {clients.map((client, index) => (
             <motion.div
               key={client.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="flex items-center justify-center bg-white p-12 border border-gray-200 hover:shadow-lg transition-all"

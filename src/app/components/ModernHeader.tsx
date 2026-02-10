@@ -89,7 +89,7 @@ export function ModernHeader() {
                 href={item.href}
                 className="relative text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide group"
                 initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 {item.name}
