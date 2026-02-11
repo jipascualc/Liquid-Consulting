@@ -21,4 +21,7 @@ dist/
 npm-debug.log*
 
 # Large video files (use external hosting)
-*.mp4
+# Keep liquid_hero.mp4 (4MB, used for hero background)
+src/assets/Demo-video-*.mp4
+src/assets/Liquid-*.mp4
+src/assets/field_service.mp4
