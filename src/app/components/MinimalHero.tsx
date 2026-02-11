@@ -28,7 +28,9 @@ export function MinimalHero() {
           loop
           muted
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
+          style={{ background: '#0A1628' }}
         />
         <div className="absolute inset-0 bg-[rgba(10,22,40,0.30)]" />
       </motion.div>

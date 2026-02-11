@@ -38,7 +38,7 @@ export function MinimalFooter({ onServiceClick, onNavigate }: MinimalFooterProps
             <div className="h-[40px] w-[120px] relative">
               <div className="absolute left-[-460.16px] size-0 top-[-32px]" style={{ transform: 'scale(0.625)', transformOrigin: '460.16px 32px' }}>
                 <div className="absolute h-[70.56px] left-[597.6px] overflow-clip top-[29.76px] w-[40.8px]">
-                  <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage} />
+                  <img alt="" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage} />
                 </div>
                 <div className="absolute left-[601.78px] size-[32.72px] top-[62.96px]">
                   <div className="absolute content-stretch flex flex-col items-start left-0 overflow-clip size-[32.72px] top-0">
@@ -69,7 +69,7 @@ export function MinimalFooter({ onServiceClick, onNavigate }: MinimalFooterProps
               rel="noopener noreferrer"
               className="inline-block mt-6 opacity-60 hover:opacity-100 transition-opacity"
             >
-              <img src={imgLinkedinLogoPng} alt="LinkedIn" className="w-6 h-6" />
+              <img src={imgLinkedinLogoPng} alt="LinkedIn" loading="lazy" className="w-6 h-6" />
             </a>
           </div>
 

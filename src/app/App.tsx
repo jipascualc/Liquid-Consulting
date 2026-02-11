@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { MinimalHeader } from "./components/MinimalHeader";
 import { MinimalFooter } from "./components/MinimalFooter";
 import { HomePage } from "./pages/HomePage";
-import { AboutPage } from "./pages/AboutPage";
-import { JoinUsPage } from "./pages/JoinUsPage";
-import { ServicesPage } from "./pages/ServicesPage";
-import { ServiceDetailPage } from "./pages/ServiceDetailPage";
+
+const AboutPage = lazy(() => import("./pages/AboutPage").then(m => ({ default: m.AboutPage })));
+const JoinUsPage = lazy(() => import("./pages/JoinUsPage").then(m => ({ default: m.JoinUsPage })));
+const ServicesPage = lazy(() => import("./pages/ServicesPage").then(m => ({ default: m.ServicesPage })));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage").then(m => ({ default: m.ServiceDetailPage })));
 
 type PageType = "home" | "about" | "join-us" | "services" | { type: "service"; id: string };
 
@@ -79,7 +80,11 @@ export default function App() {
         currentPage={getHeaderPage()}
         onNavigate={(page) => navigate(page)}
       />
-      <main className="relative z-10" style={{ borderRadius: 0 }}>{renderPage()}</main>
+      <main className="relative z-10" style={{ borderRadius: 0 }}>
+        <Suspense fallback={<div className="min-h-screen" />}>
+          {renderPage()}
+        </Suspense>
+      </main>
       <MinimalFooter
         onServiceClick={handleServiceClick}
         onNavigate={(page) => navigate(page)}
