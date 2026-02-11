@@ -7,36 +7,31 @@ interface ServicesPageProps {
 
 export function ServicesPage({ onServiceClick }: ServicesPageProps) {
   return (
-    <>
+    <div className="relative pt-[72px]" style={{ backgroundColor: '#0A1628', borderRadius: 0 }}>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-[#0d1c36] to-[#0d1c36]/95 pt-32 pb-16">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="bg-[#0A1628] text-[#F0F2F5] py-20" style={{ borderRadius: 0 }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-16">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+            transition={{ duration: 0.6 }}
           >
-            <p className="text-[#ff6c19] text-sm uppercase tracking-wider mb-4">
+            <p className="font-mono text-xs tracking-[3px] uppercase text-[#8A96A6] mb-4">
               What We Offer
             </p>
-            <h1 className="text-4xl md:text-6xl text-white mb-6">
+            <h1 className="text-5xl font-bold tracking-[-2px] mb-6">
               Our Services
             </h1>
-            <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-[#8A96A6] leading-relaxed">
               Comprehensive solutions designed to optimize your food manufacturing operations,
               from emergency response to transformative upgrades.
             </p>
           </motion.div>
         </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff6c19]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#ff6c19]/5 rounded-full blur-3xl" />
       </section>
 
       {/* Services Section */}
       <MinimalServices onServiceClick={onServiceClick} />
-    </>
+    </div>
   );
 }

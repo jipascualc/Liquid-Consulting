@@ -6,18 +6,25 @@ interface RequestSupportModalProps {
   onClose: () => void;
 }
 
+const reasons = [
+  "Emergency Support",
+  "Service Contract",
+  "Commissioning",
+  "Food Safety",
+  "Legacy Upgrade",
+  "Automation",
+  "Liquid Engineering",
+  "General Inquiry",
+];
+
 export function RequestSupportModal({ isOpen, onClose }: RequestSupportModalProps) {
   const [formData, setFormData] = useState({
+    reason: "",
+    name: "",
     company: "",
-    fullName: "",
     email: "",
-    subject: "",
-    dueDate: "",
-    hour: "01",
-    minute: "00",
-    period: "AM",
-    description: "",
-    attachment: null as File | null,
+    phone: "",
+    message: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -25,250 +32,141 @@ export function RequestSupportModal({ isOpen, onClose }: RequestSupportModalProp
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData(prev => ({ ...prev, attachment: e.target.files![0] }));
-    }
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would integrate with Zoho API
     console.log("Form submitted:", formData);
-    // Reset form and close modal
-    handleReset();
+    setFormData({ reason: "", name: "", company: "", email: "", phone: "", message: "" });
     onClose();
-  };
-
-  const handleReset = () => {
-    setFormData({
-      company: "",
-      fullName: "",
-      email: "",
-      subject: "",
-      dueDate: "",
-      hour: "01",
-      minute: "00",
-      period: "AM",
-      description: "",
-      attachment: null,
-    });
   };
 
   if (!isOpen) return null;
 
+  const inputClasses = "w-full px-4 py-3 border border-[#E0E4EA] rounded-lg bg-[#F0F2F5] text-[#0A1628] placeholder-[#6B7A8D] focus:outline-none focus:ring-2 focus:ring-[#2D4A6F] focus:border-transparent";
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
       {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+      <div
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
         onClick={onClose}
       />
-      
+
       {/* Modal */}
-      <div className="relative bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto mx-4">
+      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto mx-4">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-gray-200 px-8 py-6 flex items-center justify-between">
-          <h2 className="text-[#0d1c36]">RFQ/RFS</h2>
+        <div className="px-10 pt-10 pb-0 flex items-start justify-between">
+          <div>
+            <h2 className="text-[#0A1628] text-2xl font-bold mb-2">Request Support</h2>
+            <p className="text-[#6B7A8D] leading-relaxed">
+              Tell us what you need. We'll get back to you within one business day — or within the hour for emergencies.
+            </p>
+          </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-[#6B7A8D] hover:text-[#0A1628] transition-colors ml-4 mt-1 shrink-0"
           >
             <X size={24} />
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-8">
-          <div className="space-y-6">
-            {/* Company */}
+        <form onSubmit={handleSubmit} className="px-10 pt-8 pb-10">
+          {/* Radio Group */}
+          <div className="mb-8">
+            <p className="font-mono text-xs tracking-[3px] uppercase text-[#6B7A8D] mb-5">
+              How can we help?
+            </p>
+            <div className="space-y-3">
+              {reasons.map((reason) => (
+                <label key={reason} className="flex items-center gap-3 cursor-pointer group">
+                  <input
+                    type="radio"
+                    name="reason"
+                    value={reason}
+                    checked={formData.reason === reason}
+                    onChange={handleInputChange}
+                    required
+                    className="w-5 h-5 border-2 border-[#D0D4DB] appearance-none rounded-full checked:border-[#2D4A6F] checked:border-[6px] focus:outline-none cursor-pointer transition-all"
+                  />
+                  <span className="text-[#0A1628] group-hover:text-[#2D4A6F] transition-colors">
+                    {reason}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Name & Company */}
+          <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-gray-700 mb-2">
-                Company
-              </label>
+              <label className="block text-sm font-medium text-[#2D4A6F] mb-2">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                className={inputClasses}
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-[#2D4A6F] mb-2">Company</label>
               <input
                 type="text"
                 name="company"
                 value={formData.company}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6c19] focus:border-transparent"
-                required
+                className={inputClasses}
               />
             </div>
+          </div>
 
-            {/* Full Name */}
+          {/* Email & Phone */}
+          <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-gray-700 mb-2">
-                Full Name
-              </label>
-              <input
-                type="text"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6c19] focus:border-transparent"
-                required
-              />
-            </div>
-
-            {/* Email */}
-            <div>
-              <label className="block text-gray-700 mb-2">
-                Email
-              </label>
+              <label className="block text-sm font-medium text-[#2D4A6F] mb-2">Email</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6c19] focus:border-transparent"
+                className={inputClasses}
                 required
               />
             </div>
-
-            {/* Subject */}
             <div>
-              <label className="block text-gray-700 mb-2">
-                Subject
-              </label>
+              <label className="block text-sm font-medium text-[#2D4A6F] mb-2">Phone</label>
               <input
-                type="text"
-                name="subject"
-                value={formData.subject}
+                type="tel"
+                name="phone"
+                value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6c19] focus:border-transparent"
-                required
+                className={inputClasses}
               />
             </div>
-
-            {/* Due Date */}
-            <div>
-              <label className="block text-gray-700 mb-2">
-                Due Date
-              </label>
-              <div className="flex gap-3">
-                <input
-                  type="text"
-                  name="dueDate"
-                  value={formData.dueDate}
-                  onChange={handleInputChange}
-                  placeholder="MM/dd/yyyy"
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6c19] focus:border-transparent"
-                  required
-                />
-                <select
-                  value={formData.hour}
-                  onChange={(e) => handleSelectChange("hour", e.target.value)}
-                  className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6c19] focus:border-transparent bg-white"
-                >
-                  {Array.from({ length: 12 }, (_, i) => {
-                    const hour = (i + 1).toString().padStart(2, "0");
-                    return <option key={hour} value={hour}>{hour}</option>;
-                  })}
-                </select>
-                <select
-                  value={formData.minute}
-                  onChange={(e) => handleSelectChange("minute", e.target.value)}
-                  className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6c19] focus:border-transparent bg-white"
-                >
-                  {Array.from({ length: 60 }, (_, i) => {
-                    const minute = i.toString().padStart(2, "0");
-                    return <option key={minute} value={minute}>{minute}</option>;
-                  })}
-                </select>
-                <select
-                  value={formData.period}
-                  onChange={(e) => handleSelectChange("period", e.target.value)}
-                  className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6c19] focus:border-transparent bg-white"
-                >
-                  <option value="AM">AM</option>
-                  <option value="PM">PM</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Description */}
-            <div>
-              <label className="block text-gray-700 mb-2">
-                Description
-              </label>
-              <textarea
-                name="description"
-                value={formData.description}
-                onChange={handleInputChange}
-                rows={5}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff6c19] focus:border-transparent resize-none"
-                required
-              />
-            </div>
-
-            {/* Attachment */}
-            <div>
-              <label className="block text-gray-700 mb-2">
-                Attachment
-              </label>
-              <div className="mb-2">
-                <label className="inline-block cursor-pointer">
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md border border-gray-300 hover:bg-gray-200 transition-colors">
-                    Choose File
-                  </span>
-                  <input
-                    type="file"
-                    onChange={handleFileChange}
-                    className="hidden"
-                    accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.webp"
-                  />
-                  <span className="ml-3 text-gray-600">
-                    {formData.attachment ? formData.attachment.name : "No file chosen"}
-                  </span>
-                </label>
-              </div>
-              <p className="text-sm text-gray-500">
-                Each of your file(s) can be up to 20MB in size. You can attach as many as 5 files at a time.
-              </p>
-            </div>
           </div>
 
-          {/* Buttons */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              type="submit"
-              className="px-8 py-3 bg-[#ff6c19] text-white rounded-md hover:bg-[#ff8540] transition-colors font-semibold"
-            >
-              Submit
-            </button>
-            <button
-              type="button"
-              onClick={handleReset}
-              className="px-8 py-3 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors font-semibold"
-            >
-              Reset
-            </button>
+          {/* Message */}
+          <div className="mb-8">
+            <label className="block text-sm font-medium text-[#2D4A6F] mb-2">Message</label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              rows={4}
+              placeholder="Describe your situation..."
+              className={`${inputClasses} resize-none`}
+            />
           </div>
 
-          {/* Powered by Zoho */}
-          <div className="flex items-center justify-end gap-2 mt-6">
-            <span className="text-sm text-gray-600">powered by</span>
-            <svg className="h-5" viewBox="0 0 80 24" fill="none">
-              <path d="M12 6L2 18h8l10-12h-8z" fill="#00A3E0"/>
-            </svg>
-          </div>
-        </form>
-
-        {/* Close Button at Bottom */}
-        <div className="sticky bottom-0 bg-white border-t border-gray-200 px-8 py-4 flex justify-end">
+          {/* Submit */}
           <button
-            type="button"
-            onClick={onClose}
-            className="px-8 py-2.5 border-2 border-[#ff6c19] text-[#ff6c19] rounded-full hover:bg-[#ff6c19]/5 transition-colors font-medium"
+            type="submit"
+            className="w-full py-4 bg-[#0A1628] text-white rounded-lg font-semibold hover:bg-[#162036] transition-colors"
           >
-            Close
+            Send Request &rarr;
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

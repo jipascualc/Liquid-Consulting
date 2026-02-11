@@ -13,10 +13,16 @@ export function MinimalHero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const handleRequestSupport = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent("open-support-modal"));
+  };
+
   return (
-    <section ref={ref} style={{ position: 'relative' }} className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section ref={ref} style={{ position: 'relative' }} className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Video Background */}
       <motion.div style={{ y }} className="absolute inset-0">
-       <video
+        <video
           src={heroVideo}
           autoPlay
           loop
@@ -24,24 +30,40 @@ export function MinimalHero() {
           playsInline
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#0d1c36]/70 bg-[rgba(0,0,0,0.3)]" />
+        <div className="absolute inset-0 bg-[rgba(10,22,40,0.30)]" />
       </motion.div>
 
-      <motion.div style={{ opacity }} className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <h1 className="text-6xl md:text-7xl lg:text-8xl mb-6 text-white">
-          We make it <span className="italic text-[#ff6c19]">easier</span>
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto">
-          Delivering outstanding performance in food & beverage knowledge
-        </p>
+      {/* Content — left-aligned */}
+      <motion.div style={{ opacity }} className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pt-36 pb-24">
+        <div className="max-w-[680px]">
+          {/* Title */}
+          <h1 className="text-[clamp(42px,5.5vw,72px)] font-bold tracking-[-2.5px] leading-[1.04] text-[#F0F2F5] mb-8">
+            We show up when<br />production goes down.
+          </h1>
 
-        <a
-          href="#services"
-          className="inline-block px-8 py-4 bg-[#ff6c19] text-white hover:bg-[#ff8540] transition-colors rounded-full"
-        >
-          Explore Services
-        </a>
+          {/* Subtitle */}
+          <p className="text-[19px] leading-[1.7] text-[rgba(240,242,245,0.65)] max-w-[520px] mb-11">
+            Liquid optimizes food and beverage production with long-term maintenance, rapid troubleshooting, and turnkey solutions. We reduce downtime and protect product quality.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex items-center gap-4 flex-wrap">
+            <a
+              href="#"
+              onClick={handleRequestSupport}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-[#E8520E] text-white font-semibold text-[15px] hover:bg-[#FF6B2B] hover:-translate-y-px transition-all shadow-[0_4px_12px_rgba(0,0,0,0.2)]"
+            >
+              Request Support
+            </a>
+            <a
+              href="#services"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-transparent text-[#F0F2F5] border border-[#6B7A8D] font-semibold text-[15px] hover:border-[#F0F2F5] hover:text-[#F0F2F5] transition-all"
+            >
+              Our Services
+            </a>
+          </div>
+
+        </div>
       </motion.div>
     </section>
   );

@@ -22,27 +22,27 @@ export function MinimalExperience() {
           style={{ scale }}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#0d1c36]/80" />
+        <div className="absolute inset-0 bg-[#0A1628]/80" />
       </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
         <div className="max-w-2xl">
-          <p className="text-[#ff6c19] text-sm uppercase tracking-wider mb-6">Why Choose Us</p>
-          
-          <h2 className="text-4xl md:text-5xl text-white mb-6">
+          <p className="text-[#8A96A6] text-sm uppercase tracking-wider mb-6 font-mono">Why Choose Us</p>
+
+          <h2 className="text-4xl md:text-5xl text-[#F0F2F5] mb-6">
             Experience That Drives Results
           </h2>
-          
-          <p className="text-xl text-white/80 leading-relaxed mb-8">
+
+          <p className="text-xl text-[#8A96A6] leading-relaxed mb-8">
             Our team brings deep expertise in food industry operations, combining technical knowledge with practical experience to deliver solutions that work in the real world.
           </p>
 
-          <a
-            href="#contact"
-            className="inline-block px-8 py-4 bg-[#ff6c19] text-white hover:bg-[#ff8540] transition-colors rounded-full"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-support-modal"))}
+            className="inline-block px-8 py-4 bg-[#E8520E] text-white hover:bg-[#FF6B2B] transition-colors rounded-lg font-semibold text-[15px] cursor-pointer"
           >
             Get Started Today
-          </a>
+          </button>
         </div>
       </div>
     </section>

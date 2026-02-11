@@ -43,7 +43,7 @@ export default function App() {
   };
 
   const handleBackToHome = () => {
-    navigate("home");
+    navigate("services");
   };
 
   const getHeaderPage = (): "home" | "about" | "join-us" | "services" => {
@@ -74,12 +74,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen bg-[#F0F2F5] relative">
       <MinimalHeader
         currentPage={getHeaderPage()}
         onNavigate={(page) => navigate(page)}
       />
-      <main className="relative z-10">{renderPage()}</main>
+      <main className="relative z-10" style={{ borderRadius: 0 }}>{renderPage()}</main>
       <MinimalFooter
         onServiceClick={handleServiceClick}
         onNavigate={(page) => navigate(page)}

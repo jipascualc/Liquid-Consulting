@@ -1,5 +1,21 @@
 import { motion } from "motion/react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, X } from "lucide-react";
+import { useState } from "react";
+import fieldServiceVideo from "../../assets/field_service.mp4";
+import foodSafetyVideo from "../../assets/Liquid-Food-Safety-Video.mp4";
+import legacyUpgradeVideo from "../../assets/Demo-video-Legacy-Upgrade-9.mp4";
+import automationPresentationVideo from "../../assets/Liquid-Automation-Advantage-Presentation.mp4";
+import waveInterfaceVideo from "../../assets/Liquid-Wave-User-Interface-Final.mp4";
+
+const demoVideos: Record<string, Array<{ label: string; src: string }>> = {
+  "field-service": [{ label: "Field Service", src: fieldServiceVideo }],
+  "food-safety": [{ label: "Food Safety", src: foodSafetyVideo }],
+  "legacy-upgrade": [{ label: "Legacy Upgrade", src: legacyUpgradeVideo }],
+  "automation-advantage": [
+    { label: "Automation Advantage", src: automationPresentationVideo },
+    { label: "Wave User Interface", src: waveInterfaceVideo },
+  ],
+};
 import imgTroubleshootingJpg from "../../assets/17f02d56c509a9ebab651232ec0fa0216449906e.webp";
 import imgRepairsPng from "../../assets/41e17cc9b8f104de238498bc9a3e3396bbcff442.webp";
 import imgSparePartsPng from "../../assets/d9190a58d045e2c0853c6b8f58da381e72e26a64.webp";
@@ -256,16 +272,18 @@ const servicesData: Record<string, ServiceData> = {
 };
 
 export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps) {
+  const [showVideo, setShowVideo] = useState(false);
+  const [videoIndex, setVideoIndex] = useState(0);
   const service = servicesData[serviceId];
 
   if (!service) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-[#F0F2F5]">
         <div className="text-center">
-          <h2 className="text-2xl text-[#0d1c36] mb-4">Service not found</h2>
+          <h2 className="text-2xl text-[#0A1628] mb-4">Service not found</h2>
           <button
             onClick={onBack}
-            className="text-[#ff6c19] hover:text-[#ff8540] flex items-center gap-2 mx-auto"
+            className="text-[#6B7A8D] hover:text-[#0A1628] flex items-center gap-2 mx-auto"
           >
             <ArrowLeft size={20} />
             Back to Home
@@ -276,12 +294,12 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#F0F2F5]">
       {/* Back Button */}
-      <div className="max-w-7xl mx-auto px-6 pt-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 pt-28 relative z-10">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-gray-600 hover:text-[#ff6c19] transition-colors group"
+          className="flex items-center gap-2 text-[#6B7A8D] hover:text-[#0A1628] transition-colors group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
           Back to Services
@@ -296,35 +314,31 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <div className="inline-block px-4 py-2 bg-[#ff6c19]/10 text-[#ff6c19] text-sm uppercase tracking-wider mb-4 rounded-full">
+          <p className="font-mono text-xs tracking-[3px] uppercase text-[#6B7A8D] mb-4">
             {service.category}
-          </div>
-          <h1 className="text-4xl md:text-6xl text-[#0d1c36] mb-4">
+          </p>
+          <h1 className="text-4xl md:text-6xl text-[#0A1628] mb-4 font-bold tracking-[-2px]">
             {service.title}
           </h1>
-          <p className="text-xl text-[#ff6c19] mb-6 italic">
+          <p className="text-xl text-[#4B5563] mb-6 italic">
             {service.tagline}
           </p>
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+          <p className="text-lg text-[#4B5563] leading-relaxed mb-8">
             {service.description}
           </p>
           <div className="flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                onBack();
-                setTimeout(() => {
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-              }}
-              className="inline-block px-8 py-3 bg-[#ff6c19] text-white hover:bg-[#ff8540] transition-colors rounded-full"
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-support-modal"))}
+              className="inline-block px-8 py-3 bg-[#E8520E] text-white hover:bg-[#FF6B2B] transition-colors rounded-lg font-semibold cursor-pointer"
             >
-              Book a meeting
-            </a>
-            {(service.category === "Field Service" || serviceId === "food-safety" || serviceId === "legacy-upgrade") && (
-              <button className="inline-block px-8 py-3 bg-white text-[#ff6c19] border-2 border-[#ff6c19] hover:bg-[#ff6c19] hover:text-white transition-all rounded-full">
-                Watch a demo
+              Request Support
+            </button>
+            {["field-service", "food-safety", "legacy-upgrade", "automation-advantage"].includes(serviceId) && (
+              <button
+                onClick={() => setShowVideo(true)}
+                className="inline-block px-8 py-3 bg-transparent text-[#0A1628] border border-[#D0D4DB] hover:border-[#0A1628] transition-all rounded-lg font-semibold"
+              >
+                Watch a Demo
               </button>
             )}
           </div>
@@ -332,11 +346,11 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl text-[#0d1c36] mb-12">Key Capabilities</h2>
+          <h2 className="text-3xl md:text-4xl text-[#0A1628] mb-12 font-bold tracking-[-1px]">Key Capabilities</h2>
 
-          <div className={`grid grid-cols-1 gap-8 ${service.features.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
+          <div className={`grid grid-cols-1 gap-6 ${service.features.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
             {service.features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -344,9 +358,9 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-[10px] overflow-hidden border border-[#E0E4EA] hover:shadow-[0_2px_12px_rgba(10,22,40,0.06)] transition-shadow"
               >
-                <div className="aspect-[16/9] bg-gray-100 overflow-hidden">
+                <div className="aspect-[16/9] bg-[#F0F2F5] overflow-hidden">
                   <img
                     src={feature.image}
                     alt={feature.title}
@@ -354,10 +368,10 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl text-[#0d1c36] mb-3">
+                  <h3 className="text-xl text-[#0A1628] mb-3 font-semibold">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-[#4B5563] leading-relaxed text-[15px]">
                     {feature.description}
                   </p>
                 </div>
@@ -367,7 +381,55 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
         </div>
       </section>
 
-
+      {/* Video Modal */}
+      {showVideo && (() => {
+        const videos = demoVideos[serviceId] || [{ label: "Demo", src: fieldServiceVideo }];
+        return (
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center"
+            onClick={() => { setShowVideo(false); setVideoIndex(0); }}
+          >
+            <div className="absolute inset-0 bg-black/80" />
+            <div
+              className="relative w-full max-w-5xl mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => { setShowVideo(false); setVideoIndex(0); }}
+                className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors"
+              >
+                <X size={28} />
+              </button>
+              {videos.length > 1 && (
+                <div className="flex gap-2 mb-3">
+                  {videos.map((v, i) => (
+                    <button
+                      key={v.label}
+                      onClick={() => setVideoIndex(i)}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        videoIndex === i
+                          ? "bg-white text-[#0A1628]"
+                          : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
+                      }`}
+                    >
+                      {v.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+              <div className="rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  key={videos[videoIndex].src}
+                  src={videos[videoIndex].src}
+                  autoPlay
+                  controls
+                  className="w-full"
+                />
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

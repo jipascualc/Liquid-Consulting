@@ -9,7 +9,7 @@ export function MinimalTestimonials() {
       role: "Controls Engineer"
     },
     {
-      quote: "Liquid's Milk Fat Standardizer (MFS) is exceptionally consistent and precise. Its accuracy will save us millions of dollars by eliminating the need to overshoot regulatory standards just to ensure compliance. On top of that, Liquid truly delivers on their promises—they're simply easy to work with.\n\nWe also chose Liquid for this project because they were able to complete the system switch in under 60 hours, significantly reducing our costly downtime.",
+      quote: "Liquid's Milk Fat Standardizer (MFS) is exceptionally consistent and precise. Its accuracy will save us millions of dollars by eliminating the need to overshoot regulatory standards just to ensure compliance. On top of that, Liquid truly delivers on their promises\u2014they're simply easy to work with.\n\nWe also chose Liquid for this project because they were able to complete the system switch in under 60 hours, significantly reducing our costly downtime.",
       author: "Aaron",
       role: "Automation Manager"
     },
@@ -21,11 +21,11 @@ export function MinimalTestimonials() {
   ];
 
   return (
-    <section id="testimonials" className="relative py-24 bg-[#f9fafb]">
+    <section id="testimonials" className="relative py-24 bg-[#E5E7EB]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="text-[#ff6c19] text-sm uppercase tracking-wider mb-4">Testimonials</p>
-          <h2 className="text-4xl md:text-5xl text-[#0d1c36] mb-4">
+          <p className="text-[#6B7A8D] text-sm uppercase tracking-wider mb-4 font-mono">Testimonials</p>
+          <h2 className="text-4xl md:text-5xl text-[#0A1628] mb-4">
             What Our Clients Say
           </h2>
         </div>
@@ -40,13 +40,13 @@ export function MinimalTestimonials() {
               viewport={{ once: true }}
               className="flex flex-col"
             >
-              <Quote className="w-8 h-8 text-[#ff6c19] mb-4 opacity-40" />
-              <p className="text-gray-700 leading-relaxed mb-6 whitespace-pre-line text-lg italic min-h-[160px]">
+              <Quote className="w-8 h-8 text-[#2D4A6F] mb-4 opacity-40" />
+              <p className="text-[#4B5563] leading-relaxed mb-6 whitespace-pre-line text-lg italic min-h-[160px]">
                 "{testimonial.quote}"
               </p>
               <div>
-                <p className="text-[#0d1c36] font-medium">— {testimonial.author}</p>
-                <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                <p className="text-[#0A1628] font-medium">— {testimonial.author}</p>
+                <p className="text-[#6B7A8D] text-sm">{testimonial.role}</p>
               </div>
             </motion.div>
           ))}
