@@ -1,19 +1,14 @@
 import { motion } from "motion/react";
 import { ArrowLeft, X } from "lucide-react";
 import { useState } from "react";
-import fieldServiceVideo from "../../assets/field_service.mp4";
-import foodSafetyVideo from "../../assets/Liquid-Food-Safety-Video.mp4";
-import legacyUpgradeVideo from "../../assets/Demo-video-Legacy-Upgrade-9.mp4";
-import automationPresentationVideo from "../../assets/Liquid-Automation-Advantage-Presentation.mp4";
-import waveInterfaceVideo from "../../assets/Liquid-Wave-User-Interface-Final.mp4";
-
+// Videos are hosted externally — update these URLs when available
 const demoVideos: Record<string, Array<{ label: string; src: string }>> = {
-  "field-service": [{ label: "Field Service", src: fieldServiceVideo }],
-  "food-safety": [{ label: "Food Safety", src: foodSafetyVideo }],
-  "legacy-upgrade": [{ label: "Legacy Upgrade", src: legacyUpgradeVideo }],
+  "field-service": [{ label: "Field Service", src: "" }],
+  "food-safety": [{ label: "Food Safety", src: "" }],
+  "legacy-upgrade": [{ label: "Legacy Upgrade", src: "" }],
   "automation-advantage": [
-    { label: "Automation Advantage", src: automationPresentationVideo },
-    { label: "Wave User Interface", src: waveInterfaceVideo },
+    { label: "Automation Advantage", src: "" },
+    { label: "Wave User Interface", src: "" },
   ],
 };
 import imgTroubleshootingJpg from "../../assets/17f02d56c509a9ebab651232ec0fa0216449906e.webp";
@@ -333,7 +328,7 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
             >
               Request Support
             </button>
-            {["field-service", "food-safety", "legacy-upgrade", "automation-advantage"].includes(serviceId) && (
+            {demoVideos[serviceId]?.some(v => v.src) && (
               <button
                 onClick={() => setShowVideo(true)}
                 className="inline-block px-8 py-3 bg-transparent text-[#0A1628] border border-[#D0D4DB] hover:border-[#0A1628] transition-all rounded-lg font-semibold"
@@ -383,7 +378,7 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
 
       {/* Video Modal */}
       {showVideo && (() => {
-        const videos = demoVideos[serviceId] || [{ label: "Demo", src: fieldServiceVideo }];
+        const videos = demoVideos[serviceId] || [{ label: "Demo", src: "" }];
         return (
           <div
             className="fixed inset-0 z-[100] flex items-center justify-center"
