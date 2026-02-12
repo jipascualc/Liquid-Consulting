@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { Target, Lightbulb, Zap, Users, Award, Shield } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import whatWeDoImg from "../../assets/What we do.png";
-import whyLiquidImg from "../../assets/why liquid .png";
+import whatWeDoImg from "../../assets/What we do.webp";
+import whyLiquidImg from "../../assets/why liquid .webp";
 
 export function AboutPage() {
 
