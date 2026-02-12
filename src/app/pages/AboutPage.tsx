@@ -36,8 +36,8 @@ export function AboutPage() {
   return (
     <div className="relative pt-[72px]" style={{ backgroundColor: '#0A1628', borderRadius: 0 }}>
       {/* Hero Section */}
-      <section className="bg-[#0A1628] text-[#F0F2F5] py-20" style={{ borderRadius: 0 }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-16">
+      <section className="bg-[#0A1628] text-[#F0F2F5] py-16 md:py-20" style={{ borderRadius: 0 }}>
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -46,10 +46,10 @@ export function AboutPage() {
             <p className="font-mono text-xs tracking-[3px] uppercase text-[#8A96A6] mb-4">
               About Liquid
             </p>
-            <h1 className="text-5xl font-bold tracking-[-2px] mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-[-2px] mb-6">
               Excellence in Food Industry Solutions
             </h1>
-            <p className="text-xl text-[#8A96A6] leading-relaxed">
+            <p className="text-[17px] text-[#8A96A6] leading-relaxed max-w-2xl">
               Driving performance and reliability in food manufacturing since 2006
             </p>
           </motion.div>
@@ -58,7 +58,7 @@ export function AboutPage() {
 
       {/* Stats Section */}
       <section className="bg-[#F0F2F5] py-16 border-b border-[#D0D4DB]">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <motion.div
@@ -78,8 +78,8 @@ export function AboutPage() {
       </section>
 
       {/* Vision & Mission Cards */}
-      <section className="bg-[#E5E7EB] py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="bg-[#E5E7EB] py-16 md:py-20 lg:py-[120px]">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -117,8 +117,8 @@ export function AboutPage() {
       </section>
 
       {/* What is Liquid Section */}
-      <section className="bg-[#F0F2F5] py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="bg-[#F0F2F5] py-16 md:py-20 lg:py-[120px]">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -157,8 +157,8 @@ export function AboutPage() {
       </section>
 
       {/* What We Offer Section */}
-      <section className="bg-[#E5E7EB] py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="bg-[#E5E7EB] py-16 md:py-20 lg:py-[120px]">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -198,15 +198,15 @@ export function AboutPage() {
       </section>
 
       {/* Why Liquid Section */}
-      <section className="bg-[#F0F2F5] py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+      <section className="bg-[#F0F2F5] py-16 md:py-20 lg:py-[120px]">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
+          <div className="mb-16">
             <p className="font-mono text-xs tracking-[3px] uppercase text-[#6B7A8D] mb-4">Why Choose Us</p>
-            <h2 className="text-4xl text-[#0A1628] mb-6 font-bold tracking-[-1px]">Why Liquid</h2>
-            <p className="text-[#4B5563] max-w-3xl mx-auto leading-relaxed mb-4">
+            <h2 className="text-3xl md:text-4xl text-[#0A1628] mb-6 font-bold tracking-[-1px]">Why Liquid</h2>
+            <p className="text-[#4B5563] max-w-3xl leading-relaxed mb-4">
               Choosing Liquid means partnering with a team that puts your needs first, providing exceptional responsiveness and personalized attention with unwavering integrity.
             </p>
-            <p className="text-[#4B5563] max-w-3xl mx-auto leading-relaxed">
+            <p className="text-[#4B5563] max-w-3xl leading-relaxed">
               Discover the fun and easy way to elevate your operations with Liquid, and let us bring a smile to your face as we enhance your success.
             </p>
           </div>
@@ -219,9 +219,9 @@ export function AboutPage() {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center bg-white p-8 rounded-[10px] border border-[#E0E4EA]"
+                className="bg-white p-8 rounded-[10px] border border-[#E0E4EA]"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-[rgba(45,74,111,0.08)] rounded-[10px] mb-6">
+                <div className="flex items-center justify-center w-14 h-14 bg-[rgba(45,74,111,0.08)] rounded-[10px] mb-6">
                   <benefit.icon className="w-7 h-7 text-[#2D4A6F]" />
                 </div>
                 <h3 className="text-lg text-[#0A1628] mb-3 font-semibold">{benefit.title}</h3>
@@ -235,9 +235,9 @@ export function AboutPage() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mt-16 text-center bg-[#E5E7EB] p-12 rounded-[10px]"
+            className="mt-16 bg-[#E5E7EB] p-12 rounded-[10px]"
           >
-            <p className="text-[#4B5563] text-lg leading-relaxed max-w-4xl mx-auto">
+            <p className="text-[#4B5563] text-lg leading-relaxed max-w-4xl">
               From the moment you start working with us, you'll experience our <span className="text-[#0A1628] font-semibold">"make it easier"</span> approach, ensuring a seamless and efficient process. We always strive to deliver the best solutions for your operational needs, ensuring you receive the highest level of care and professionalism.
             </p>
           </motion.div>

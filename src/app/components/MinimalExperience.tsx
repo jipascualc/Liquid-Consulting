@@ -14,7 +14,7 @@ export function MinimalExperience() {
   const scale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
 
   return (
-    <section ref={ref} style={{ position: 'relative' }} className="relative min-h-[600px] flex items-center overflow-hidden">
+    <section ref={ref} style={{ position: 'relative' }} className="relative min-h-[400px] flex items-center overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0 -top-[20%] -bottom-[20%]">
         <motion.img
           src={imgImage1Jpg}
@@ -22,18 +22,18 @@ export function MinimalExperience() {
           style={{ scale }}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#0A1628]/80" />
+        <div className="absolute inset-0 bg-[#0A1628]/70" />
       </motion.div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
-        <div className="max-w-2xl">
-          <p className="text-[#8A96A6] text-sm uppercase tracking-wider mb-6 font-mono">Why Choose Us</p>
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16 py-12 md:py-16 lg:py-20 text-center">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-[#8A96A6] text-xs uppercase tracking-[3px] mb-6 font-mono">Why Choose Us</p>
 
-          <h2 className="text-4xl md:text-5xl text-[#F0F2F5] mb-6">
+          <h2 className="text-3xl md:text-4xl text-[#F0F2F5] mb-6 font-bold tracking-[-1px]">
             Experience That Drives Results
           </h2>
 
-          <p className="text-xl text-[#8A96A6] leading-relaxed mb-8">
+          <p className="text-[17px] text-[#8A96A6] leading-relaxed mb-8">
             Our team brings deep expertise in food industry operations, combining technical knowledge with practical experience to deliver solutions that work in the real world.
           </p>
 

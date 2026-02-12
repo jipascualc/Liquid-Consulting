@@ -36,15 +36,15 @@ export function MinimalHero() {
       </motion.div>
 
       {/* Content — left-aligned */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pt-36 pb-24">
-        <div className="max-w-[680px]">
+      <motion.div style={{ opacity }} className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16 pt-36 pb-24">
+        <div className="max-w-[820px]">
           {/* Title */}
           <h1 className="text-[clamp(42px,5.5vw,72px)] font-bold tracking-[-2.5px] leading-[1.04] text-[#F0F2F5] mb-8">
-            We show up when<br />production goes down.
+            We show up when production goes down.
           </h1>
 
           {/* Subtitle */}
-          <p className="text-[19px] leading-[1.7] text-[rgba(240,242,245,0.65)] max-w-[520px] mb-11">
+          <p className="text-[17px] leading-[1.7] text-[rgba(240,242,245,0.65)] max-w-[520px] mb-11">
             Liquid optimizes food and beverage production with long-term maintenance, rapid troubleshooting, and turnkey solutions. We reduce downtime and protect product quality.
           </p>
 

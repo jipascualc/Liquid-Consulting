@@ -112,8 +112,8 @@ export function MinimalServices({ onServiceClick }: MinimalServicesProps) {
   };
 
   return (
-    <section id="services" className="relative bg-[#F0F2F5] py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="relative bg-[#F0F2F5] py-16 md:py-20 lg:py-[120px]">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
         <div className="space-y-16 relative">
           {/* Field Service Section */}
           <div className="relative">

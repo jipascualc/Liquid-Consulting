@@ -30,7 +30,7 @@ export function MinimalFooter({ onServiceClick, onNavigate }: MinimalFooterProps
 
   return (
     <footer className="bg-[#0A1628] text-[#F0F2F5]">
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div className="md:col-span-2">

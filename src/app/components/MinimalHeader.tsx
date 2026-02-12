@@ -39,9 +39,8 @@ export function MinimalHeader({ currentPage, onNavigate }: MinimalHeaderProps) {
           ? "bg-transparent"
           : "bg-[#0A1628]"
       }`}
-      style={{ padding: "0 64px" }}
     >
-      <div className="flex items-center h-full w-full">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16 flex items-center h-full w-full">
         {/* Logo Button */}
         <button
           onClick={() => onNavigate("home")}
@@ -119,7 +118,7 @@ export function MinimalHeader({ currentPage, onNavigate }: MinimalHeaderProps) {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-[#0A1628] border-t border-[rgba(255,255,255,0.08)]">
-          <div className="px-6 py-4 space-y-3">
+          <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16 py-4 space-y-3">
             {(["home", "services", "about", "join-us"] as const).map((page) => {
               const labels: Record<string, string> = { home: "Home", services: "Services", about: "About", "join-us": "Join Us" };
               return (

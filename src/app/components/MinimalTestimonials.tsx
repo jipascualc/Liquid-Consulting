@@ -21,16 +21,16 @@ export function MinimalTestimonials() {
   ];
 
   return (
-    <section id="testimonials" className="relative py-24 bg-[#E5E7EB]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-[#6B7A8D] text-sm uppercase tracking-wider mb-4 font-mono">Testimonials</p>
-          <h2 className="text-4xl md:text-5xl text-[#0A1628] mb-4">
+    <section id="testimonials" className="relative py-16 md:py-20 lg:py-[120px] bg-[#E5E7EB]">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
+        <div className="mb-16">
+          <p className="text-[#6B7A8D] text-xs uppercase tracking-[3px] mb-4 font-mono">Testimonials</p>
+          <h2 className="text-3xl md:text-4xl text-[#0A1628] mb-4 font-bold tracking-[-1px]">
             What Our Clients Say
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}

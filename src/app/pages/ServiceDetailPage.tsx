@@ -1,14 +1,21 @@
 import { motion } from "motion/react";
 import { ArrowLeft, X } from "lucide-react";
 import { useState } from "react";
-// Videos are hosted externally — update these URLs when available
+// Video imports — these work locally but are gitignored (too large for GitHub)
+// TODO: host externally and replace imports with URLs for production
+import videoFieldService from "../../assets/field_service.mp4";
+import videoFoodSafety from "../../assets/Liquid-Food-Safety-Video.mp4";
+import videoLegacyUpgrade from "../../assets/Demo-video-Legacy-Upgrade-9-compressed.mp4";
+import videoAutomation from "../../assets/Liquid-Automation-Advantage-Presentation-compressed.mp4";
+import videoWaveUI from "../../assets/Liquid-Wave-User-Interface-Final-compressed.mp4";
+
 const demoVideos: Record<string, Array<{ label: string; src: string }>> = {
-  "field-service": [{ label: "Field Service", src: "" }],
-  "food-safety": [{ label: "Food Safety", src: "" }],
-  "legacy-upgrade": [{ label: "Legacy Upgrade", src: "" }],
+  "field-service": [{ label: "Field Service", src: videoFieldService }],
+  "food-safety": [{ label: "Food Safety", src: videoFoodSafety }],
+  "legacy-upgrade": [{ label: "Legacy Upgrade", src: videoLegacyUpgrade }],
   "automation-advantage": [
-    { label: "Automation Advantage", src: "" },
-    { label: "Wave User Interface", src: "" },
+    { label: "Automation Advantage", src: videoAutomation },
+    { label: "Wave User Interface", src: videoWaveUI },
   ],
 };
 import imgTroubleshootingJpg from "../../assets/17f02d56c509a9ebab651232ec0fa0216449906e.webp";
@@ -291,7 +298,7 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
   return (
     <div className="min-h-screen bg-[#F0F2F5]">
       {/* Back Button */}
-      <div className="max-w-7xl mx-auto px-6 pt-28 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16 pt-28 relative z-10">
         <button
           onClick={onBack}
           className="flex items-center gap-2 text-[#6B7A8D] hover:text-[#0A1628] transition-colors group"
@@ -302,7 +309,7 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
       </div>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16 py-16">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -312,13 +319,13 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
           <p className="font-mono text-xs tracking-[3px] uppercase text-[#6B7A8D] mb-4">
             {service.category}
           </p>
-          <h1 className="text-4xl md:text-6xl text-[#0A1628] mb-4 font-bold tracking-[-2px]">
+          <h1 className="text-4xl md:text-5xl text-[#0A1628] mb-4 font-bold tracking-[-2px]">
             {service.title}
           </h1>
-          <p className="text-xl text-[#4B5563] mb-6 italic">
+          <p className="text-[17px] text-[#4B5563] mb-6 italic">
             {service.tagline}
           </p>
-          <p className="text-lg text-[#4B5563] leading-relaxed mb-8">
+          <p className="text-[17px] text-[#4B5563] leading-relaxed mb-8">
             {service.description}
           </p>
           <div className="flex flex-wrap gap-4">
@@ -341,8 +348,8 @@ export function ServiceDetailPage({ serviceId, onBack }: ServiceDetailPageProps)
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 md:py-20 lg:py-[120px] bg-[#E5E7EB]">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
           <h2 className="text-3xl md:text-4xl text-[#0A1628] mb-12 font-bold tracking-[-1px]">Key Capabilities</h2>
 
           <div className={`grid grid-cols-1 gap-6 ${service.features.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>

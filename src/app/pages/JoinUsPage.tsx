@@ -62,16 +62,16 @@ export function JoinUsPage() {
   return (
     <div className="relative pt-[72px]" style={{ backgroundColor: '#0A1628', borderRadius: 0 }}>
       {/* Hero Section */}
-      <section className="bg-[#0A1628] text-[#F0F2F5] py-20" style={{ borderRadius: 0 }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-16">
+      <section className="bg-[#0A1628] text-[#F0F2F5] py-16 md:py-20" style={{ borderRadius: 0 }}>
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
             <p className="font-mono text-xs tracking-[3px] uppercase text-[#8A96A6] mb-4">Careers</p>
-            <h1 className="text-5xl font-bold mb-6 tracking-[-2px]">Join Our Team</h1>
-            <p className="text-xl text-[#8A96A6] leading-relaxed">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-[-2px]">Join Our Team</h1>
+            <p className="text-[17px] text-[#8A96A6] leading-relaxed">
               A short questionnaire to assess fit for roles at Liquid, based on key skills and work areas.
             </p>
           </motion.div>
@@ -79,8 +79,8 @@ export function JoinUsPage() {
       </section>
 
       {/* Form Section */}
-      <section className="bg-[#F0F2F5] py-16">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="bg-[#F0F2F5] py-16 md:py-20 lg:py-[120px]">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
           <form onSubmit={handleSubmit} className="space-y-12">
             {/* Information About the Recruit */}
             <motion.div
