@@ -1,14 +1,10 @@
 import { motion } from "motion/react";
 import { Target, Lightbulb, Zap, Users, Award, Shield } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import whatWeDoImg from "../../assets/What we do.png";
+import whyLiquidImg from "../../assets/why liquid .png";
 
 export function AboutPage() {
-  const stats = [
-    { number: "100+", label: "Professionals" },
-    { number: "2006", label: "Founded" },
-    { number: "24/7", label: "Support" },
-    { number: "100%", label: "Dedicated" },
-  ];
 
   const benefits = [
     {
@@ -47,35 +43,15 @@ export function AboutPage() {
               About Liquid
             </p>
             <h1 className="text-4xl md:text-5xl font-bold tracking-[-2px] mb-6">
-              Excellence in Food Industry Solutions
+              Excellence in Industry Solutions
             </h1>
             <p className="text-[17px] text-[#8A96A6] leading-relaxed max-w-2xl">
-              Driving performance and reliability in food manufacturing since 2006
+              Driving performance and reliability across manufacturers since 2006
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-[#F0F2F5] py-16 border-b border-[#D0D4DB]">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl text-[#0A1628] mb-2 font-mono font-bold">{stat.number}</div>
-                <div className="text-[#6B7A8D] text-sm uppercase tracking-wider">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Vision & Mission Cards */}
       <section className="bg-[#E5E7EB] py-16 md:py-20 lg:py-[120px]">
@@ -129,13 +105,13 @@ export function AboutPage() {
               <p className="font-mono text-xs tracking-[3px] uppercase text-[#6B7A8D] mb-4">Our Story</p>
               <h2 className="text-4xl text-[#0A1628] mb-6 font-bold tracking-[-1px]">What is Liquid</h2>
               <p className="text-[#4B5563] leading-relaxed mb-6">
-                Liquid provides innovative, on-demand solutions and expert support to optimize and enhance food industry operations. Founded in 2006 in Sweden, Liquid has grown into a robust organization of approximately 100 dedicated professionals.
+                Liquid provides field service, industrial automation, and engineering solutions for manufacturers across industries. Founded in 2006 in Sweden, we've grown into a global team of dedicated professionals serving facilities in over 45 countries.
               </p>
               <p className="text-[#4B5563] leading-relaxed mb-6">
-                We specialize in a wide range of services, including equipment upgrades, maintenance, and troubleshooting, tailored to meet the unique needs of each client. Our mission is to deliver exceptional results that boost efficiency, reduce costs, and ensure the highest standards of quality in your production processes.
+                We specialize in emergency support, controls engineering, equipment upgrades, and long-term service partnerships — all tailored to each client's operation. Our mission is to keep production running and make it better, delivering results that boost uptime, reduce costs, and raise the standard of your processes.
               </p>
               <p className="text-[#4B5563] leading-relaxed">
-                With Liquid, you gain a partner committed to your success and the seamless operation of your business.
+                With Liquid, you gain a partner committed to your success — responsive, hands-on, and built for the field.
               </p>
             </motion.div>
 
@@ -147,9 +123,9 @@ export function AboutPage() {
               className="relative h-[400px] rounded-lg overflow-hidden shadow-lg"
             >
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1764114235891-66ff86abaf87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwbWFudWZhY3R1cmluZyUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzcwNjc0NTg1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Manufacturing Technology"
-                className="w-full h-full object-cover"
+                src={whyLiquidImg}
+                alt="Liquid technician in facility"
+                className="w-full h-full object-cover object-center"
               />
             </motion.div>
           </div>
@@ -168,8 +144,8 @@ export function AboutPage() {
               className="relative h-[400px] rounded-lg overflow-hidden shadow-lg order-2 md:order-1"
             >
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1739298061740-5ed03045b280?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwY29sbGFib3JhdGlvbiUyMG9mZmljZSUyMG1lZXRpbmd8ZW58MXx8fHwxNzcwNjE2ODQ2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Team Collaboration"
+                src={whatWeDoImg}
+                alt="What We Offer"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -184,13 +160,13 @@ export function AboutPage() {
               <p className="font-mono text-xs tracking-[3px] uppercase text-[#6B7A8D] mb-4">Services</p>
               <h2 className="text-4xl text-[#0A1628] mb-6 font-bold tracking-[-1px]">What We Offer</h2>
               <p className="text-[#4B5563] leading-relaxed mb-6">
-                At Liquid, we provide a comprehensive range of services to optimize and enhance food industry operations. Our offerings include tailored long-term maintenance contracts, rapid-response troubleshooting, and turnkey engineering solutions for any customer demand.
+                Experienced, hands-on technicians and engineers — emergency support, scheduled maintenance, and service contracts that keep your lines running without building a larger in-house team.
               </p>
               <p className="text-[#4B5563] leading-relaxed mb-6">
-                We have specialized expertise in aseptic knowledge, training, and troubleshooting, ensuring minimal downtime and maintaining product integrity. Our goal is to reduce operational costs, improve production line performance, and deliver innovative solutions tailored to your needs.
+                Industrial automation — PLC and controls programming, HMI and SCADA development, line integration, safety systems, and commissioning.
               </p>
               <p className="text-[#4B5563] leading-relaxed">
-                Whether you need immediate assistance or long-term support, Liquid is your trusted partner in achieving operational excellence and profitability.
+                Engineering and project delivery — process design, legacy upgrades, compliance consulting, and custom-built equipment and skids. From scoping through handover.
               </p>
             </motion.div>
           </div>
