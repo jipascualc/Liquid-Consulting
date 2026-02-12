@@ -92,7 +92,7 @@ export function MinimalServices({ onServiceClick }: MinimalServicesProps) {
         ref={ref}
         onClick={() => onServiceClick(service.id)}
         style={{ transitionDelay: `${index * 100}ms` }}
-        className={`group bg-white p-8 border border-[#E0E4EA] rounded-[10px] hover:border-[#2D4A6F] transition-all duration-700 ease-out cursor-pointer relative ${visible ? "opacity-100" : "opacity-0"}`}
+        className={`group bg-white p-8 border border-[#E0E4EA] rounded-[10px] hover:border-[#2D4A6F] transition-all duration-700 ease-out cursor-pointer relative flex flex-col ${visible ? "opacity-100" : "opacity-0"}`}
       >
         {/* Icon */}
         <div className="w-12 h-12 bg-[rgba(45,74,111,0.08)] rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#2D4A6F] transition-colors duration-300">
@@ -101,7 +101,7 @@ export function MinimalServices({ onServiceClick }: MinimalServicesProps) {
 
         {/* Content */}
         <h3 className="text-xl text-[#0A1628] mb-3">{service.title}</h3>
-        <p className="text-[#6B7A8D] leading-relaxed mb-4">{service.description}</p>
+        <p className="text-[#6B7A8D] leading-relaxed mb-4 flex-1">{service.description}</p>
 
         {/* Arrow */}
         <div className="flex justify-end">
