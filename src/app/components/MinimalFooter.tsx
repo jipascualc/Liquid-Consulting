@@ -6,7 +6,7 @@ import imgImage from "../../assets/08f531c289052fa27e5ab01769f8c20f9e30f073.webp
 
 interface MinimalFooterProps {
   onServiceClick?: (serviceId: string) => void;
-  onNavigate?: (page: "home" | "about" | "services") => void;
+  onNavigate?: (page: "home" | "about" | "services" | "join-us") => void;
 }
 
 export function MinimalFooter({ onServiceClick, onNavigate }: MinimalFooterProps) {
@@ -18,7 +18,7 @@ export function MinimalFooter({ onServiceClick, onNavigate }: MinimalFooterProps
     onServiceClick?.(serviceId);
   };
 
-  const handleNavigation = (e: React.MouseEvent, page: "home" | "about" | "services") => {
+  const handleNavigation = (e: React.MouseEvent, page: "home" | "about" | "services" | "join-us") => {
     e.preventDefault();
     onNavigate?.(page);
   };
@@ -93,7 +93,9 @@ export function MinimalFooter({ onServiceClick, onNavigate }: MinimalFooterProps
             <h3 className="font-mono text-xs tracking-[2px] uppercase text-[rgba(240,242,245,0.4)] mb-5">Company</h3>
             <ul className="space-y-2.5 text-[14px]">
               <li><a href="#" onClick={(e) => handleNavigation(e, "home")} className="text-[rgba(240,242,245,0.6)] hover:text-[#F0F2F5] transition-colors">Home</a></li>
+              <li><a href="#" onClick={(e) => handleNavigation(e, "services")} className="text-[rgba(240,242,245,0.6)] hover:text-[#F0F2F5] transition-colors">Services</a></li>
               <li><a href="#" onClick={(e) => handleNavigation(e, "about")} className="text-[rgba(240,242,245,0.6)] hover:text-[#F0F2F5] transition-colors">About</a></li>
+              <li><a href="#" onClick={(e) => handleNavigation(e, "join-us")} className="text-[rgba(240,242,245,0.6)] hover:text-[#F0F2F5] transition-colors">Join Us</a></li>
             </ul>
           </div>
 

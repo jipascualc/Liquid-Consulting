@@ -8,12 +8,13 @@ interface RequestSupportModalProps {
 
 const reasons = [
   "Emergency Support",
-  "Service Contract",
-  "Commissioning",
-  "Food Safety",
-  "Legacy Upgrade",
-  "Automation",
-  "Liquid Engineering",
+  "Field Service",
+  "Service Contracts",
+  "Food Safety and Compliance",
+  "Legacy Upgrade and Retrofit",
+  "Automation and Controls",
+  "Engineering and Design",
+  "Equipment and Skids",
   "General Inquiry",
 ];
 
