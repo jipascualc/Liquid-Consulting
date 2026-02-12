@@ -31,6 +31,32 @@ export default function App() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  const serviceTitles: Record<string, string> = {
+    "emergency-support": "Emergency Support",
+    "field-service": "Field Service",
+    "service-contract": "Service Contract",
+    "food-safety": "Food Safety",
+    "legacy-upgrade": "Legacy Upgrade",
+    "automation-advantage": "Automation Advantage",
+    "engineering": "Engineering",
+    "easy-products": "Easy Products",
+  };
+
+  useEffect(() => {
+    if (typeof currentPage === "string") {
+      const titles: Record<string, string> = {
+        home: "Liquid | Home",
+        services: "Liquid | Services",
+        about: "Liquid | About",
+        "join-us": "Liquid | Join Us",
+      };
+      document.title = titles[currentPage] || "Liquid";
+    } else {
+      const name = serviceTitles[currentPage.id] || "Service";
+      document.title = `Liquid | ${name}`;
+    }
+  }, [currentPage]);
+
   const navigate = (page: PageType) => {
     if (typeof page === "string") {
       window.location.hash = page === "home" ? "" : page;
