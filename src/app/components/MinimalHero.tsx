@@ -58,7 +58,8 @@ export function MinimalHero() {
               Request Support
             </a>
             <a
-              href="#services"
+              href="/services"
+              onClick={(e) => { e.preventDefault(); window.history.pushState({}, "", "/services"); window.dispatchEvent(new PopStateEvent("popstate")); }}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-transparent text-[#F0F2F5] border border-[#6B7A8D] font-semibold text-[15px] hover:border-[#F0F2F5] hover:text-[#F0F2F5] transition-all"
             >
               Our Services

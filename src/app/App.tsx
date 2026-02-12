@@ -10,59 +10,41 @@ const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage").then(m 
 
 type PageType = "home" | "about" | "join-us" | "services" | { type: "service"; id: string };
 
-function getPageFromHash(): PageType {
-  const hash = window.location.hash.replace("#", "");
-  if (hash === "about") return "about";
-  if (hash === "services") return "services";
-  if (hash === "join-us") return "join-us";
-  if (hash.startsWith("service/")) return { type: "service", id: hash.replace("service/", "") };
+function getPageFromPath(): PageType {
+  const path = window.location.pathname;
+  if (path === "/about") return "about";
+  if (path === "/services") return "services";
+  if (path === "/join-us") return "join-us";
+  if (path.startsWith("/services/")) return { type: "service", id: path.replace("/services/", "") };
   return "home";
 }
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>(getPageFromHash);
+  const [currentPage, setCurrentPage] = useState<PageType>(getPageFromPath);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentPage(getPageFromHash());
+    const handlePopState = () => {
+      setCurrentPage(getPageFromPath());
       window.scrollTo(0, 0);
     };
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  const serviceTitles: Record<string, string> = {
-    "emergency-support": "Emergency Support",
-    "field-service": "Field Service",
-    "service-contract": "Service Contract",
-    "food-safety": "Food Safety",
-    "legacy-upgrade": "Legacy Upgrade",
-    "automation-advantage": "Automation Advantage",
-    "engineering": "Engineering",
-    "easy-products": "Easy Products",
-  };
-
   useEffect(() => {
-    if (typeof currentPage === "string") {
-      const titles: Record<string, string> = {
-        home: "Liquid | Home",
-        services: "Liquid | Services",
-        about: "Liquid | About",
-        "join-us": "Liquid | Join Us",
-      };
-      document.title = titles[currentPage] || "Liquid";
-    } else {
-      const name = serviceTitles[currentPage.id] || "Service";
-      document.title = `Liquid | ${name}`;
-    }
+    document.title = "Liquid";
   }, [currentPage]);
 
   const navigate = (page: PageType) => {
+    let path: string;
     if (typeof page === "string") {
-      window.location.hash = page === "home" ? "" : page;
+      path = page === "home" ? "/" : `/${page}`;
     } else {
-      window.location.hash = `service/${page.id}`;
+      path = `/services/${page.id}`;
     }
+    window.history.pushState({}, "", path);
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
   };
 
   const handleServiceClick = (serviceId: string) => {
