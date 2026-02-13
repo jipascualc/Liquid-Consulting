@@ -40,7 +40,7 @@ export function MinimalHero() {
         <div className="max-w-[820px]">
           {/* Title */}
           <h1 className="text-[clamp(42px,5.5vw,72px)] font-bold tracking-[-2.5px] leading-[1.04] text-[#F0F2F5] mb-8">
-            We show up when production goes down.
+            THIS IS A STAGING TEST — NOT PRODUCTION.
           </h1>
 
           {/* Subtitle */}
